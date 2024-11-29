@@ -102,27 +102,13 @@ const Header = ( {
 							className={ classnames(
 								'ti-tpc-template-library-menu-item',
 								{
-									'is-active': 'templates' === currentTab,
+									'is-active': 'library' === currentTab,
 								}
 							) }
-							onClick={ () => updateCurrentTab( 'templates' ) }
+							onClick={ () => updateCurrentTab( 'library' ) }
 						>
-							{ window.tiTpc.library.tabs.templates }
+							{ window.tiTpc.library.tabs.library }
 						</Button>
-
-						{ parseInt( window.tiTpc.tier ) === 3 && (
-							<Button
-								className={ classnames(
-									'ti-tpc-template-library-menu-item',
-									{
-										'is-active': 'library' === currentTab,
-									}
-								) }
-								onClick={ () => updateCurrentTab( 'library' ) }
-							>
-								{ window.tiTpc.library.tabs.library }
-							</Button>
-						) }
 					</div>
 				) }
 
@@ -160,7 +146,8 @@ const Header = ( {
 											className={ classnames(
 												'eicon-sync',
 												{
-													'eicon-animation-spin': isFetching,
+													'eicon-animation-spin':
+														isFetching,
 												}
 											) }
 											aria-hidden="true"
@@ -180,26 +167,25 @@ const Header = ( {
 
 								{ [ 'wp-post', 'wp-page' ].includes(
 									elementor.config.document.type
-								) &&
-									parseInt( window.tiTpc.tier ) === 3 && (
-									<Button
-										className="ti-tpc-templates-modal__header__item"
-										onClick={ () =>
-											updateCurrentTab( 'export' )
-										}
-									>
-										<i
-											className="eicon-save-o"
-											aria-hidden="true"
-											title={
-												window.tiTpc.library.save
+								) && (
+										<Button
+											className="ti-tpc-templates-modal__header__item"
+											onClick={ () =>
+												updateCurrentTab( 'export' )
 											}
-										></i>
-										<span className="elementor-screen-only">
-											{ window.tiTpc.library.save }
-										</span>
-									</Button>
-								) }
+										>
+											<i
+												className="eicon-save-o"
+												aria-hidden="true"
+												title={
+													window.tiTpc.library.save
+												}
+											></i>
+											<span className="elementor-screen-only">
+												{ window.tiTpc.library.save }
+											</span>
+										</Button>
+									) }
 							</div>
 						) }
 					</div>
@@ -225,9 +211,8 @@ const Header = ( {
 
 export default compose(
 	withSelect( ( select ) => {
-		const { isFetching, isPreview, getCurrentTab, getPreview } = select(
-			'tpc/elementor'
-		);
+		const { isFetching, isPreview, getCurrentTab, getPreview } =
+			select( 'tpc/elementor' );
 
 		return {
 			isFetching: isFetching(),
@@ -237,9 +222,8 @@ export default compose(
 		};
 	} ),
 	withDispatch( ( dispatch ) => {
-		const { setFetching, togglePreview, updateCurrentTab } = dispatch(
-			'tpc/elementor'
-		);
+		const { setFetching, togglePreview, updateCurrentTab } =
+			dispatch( 'tpc/elementor' );
 
 		return {
 			setFetching,

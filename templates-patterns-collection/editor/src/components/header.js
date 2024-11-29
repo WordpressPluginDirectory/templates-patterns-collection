@@ -14,13 +14,10 @@ const Header = ( { closeModal, getOrder, getSearchQuery } ) => {
 	const { setFetching, updateCurrentTab } = useDispatch( 'tpc/block-editor' );
 
 	const TABS = {
-		templates: __( 'Page Templates' ),
-		// patterns: __( 'Patterns' ),
+		library : __( 'My Library', 'templates-patterns-collection' )
+		// Removed since PRF.
+		// templates: __( 'Page Templates', 'templates-patterns-collection' ),
 	};
-
-	if ( parseInt( tiTpc.tier ) === 3 ) {
-		TABS.library = __( 'My Library' );
-	}
 
 	const isFetching = useSelect( ( select ) =>
 		select( 'tpc/block-editor' ).isFetching()
@@ -41,13 +38,17 @@ const Header = ( { closeModal, getOrder, getSearchQuery } ) => {
 		await fetchTemplates( {
 			search: getSearchQuery(),
 			...order,
-			showFSE: tiTpc.isFSETheme ? window?.localStorage?.tpcShowFse === 'true' : false,
+			showFSE: tiTpc.isFSETheme
+				? window?.localStorage?.tpcShowFse === 'true'
+				: false,
 		} );
 
 		await fetchLibrary( {
 			search: getSearchQuery(),
 			...order,
-			showFSE: tiTpc.isFSETheme ? window?.localStorage?.tpcShowFse === 'true' : false,
+			showFSE: tiTpc.isFSETheme
+				? window?.localStorage?.tpcShowFse === 'true'
+				: false,
 		} );
 
 		setFetching( false );
@@ -77,7 +78,10 @@ const Header = ( { closeModal, getOrder, getSearchQuery } ) => {
 				{ 'library' === currentTab && ! isPreview && (
 					<ButtonGroup>
 						<Button
-							label={ __( 'Re-sync Library' ) }
+							label={ __(
+								'Re-sync Library',
+								'templates-patterns-collection'
+							) }
 							icon={ update }
 							disabled={ isFetching }
 							className={ classnames( 'is-sync', {
@@ -89,7 +93,10 @@ const Header = ( { closeModal, getOrder, getSearchQuery } ) => {
 				) }
 
 				<Button
-					label={ __( 'Close Modal' ) }
+					label={ __(
+						'Close Modal',
+						'templates-patterns-collection'
+					) }
 					icon={ closeSmall }
 					onClick={ closeModal }
 				/>

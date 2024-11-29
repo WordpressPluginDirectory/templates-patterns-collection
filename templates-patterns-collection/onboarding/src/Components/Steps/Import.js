@@ -160,6 +160,7 @@ const Import = ( {
 			source: 'remote',
 			frontPage: importData.front_page,
 			shopPages: importData.shop_pages,
+			paymentForms: importData.payment_forms,
 			demoSlug: importData.slug,
 			editor,
 		} )
@@ -413,9 +414,8 @@ export default compose(
 		};
 	} ),
 	withDispatch( ( dispatch ) => {
-		const { setImportModalStatus, setThemeAction, setError } = dispatch(
-			'ti-onboarding'
-		);
+		const { setImportModalStatus, setThemeAction, setError } =
+			dispatch( 'ti-onboarding' );
 
 		return {
 			setModal: ( status ) => setImportModalStatus( status ),

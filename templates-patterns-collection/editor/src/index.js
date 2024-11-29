@@ -14,9 +14,10 @@ import edit from './edit';
 
 if ( ! tiTpc.isSiteEditor ) {
 	registerBlockType( 'ti-tpc/templates-cloud', {
-		title: __( 'Templates Cloud' ),
+		title: __( 'Templates Cloud', 'templates-patterns-collection' ),
 		description: __(
-			'A cloud based templates library which enables you to create ready-made website in no time.'
+			'A cloud based templates library which enables you to create ready-made website in no time.',
+			'templates-patterns-collection'
 		),
 		icon,
 		category: 'design',
@@ -33,9 +34,7 @@ if ( ! tiTpc.isSiteEditor ) {
 	} );
 }
 
-if ( parseInt( tiTpc.tier ) === 3 ) {
-	registerPlugin( 'ti-tpc', {
-		render: tiTpc.isSiteEditor ? SiteEditorExporter : Exporter,
-		icon,
-	} );
-}
+registerPlugin( 'ti-tpc', {
+	render: tiTpc.isSiteEditor ? SiteEditorExporter : Exporter,
+	icon,
+} );
