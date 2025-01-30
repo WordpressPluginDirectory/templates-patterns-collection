@@ -1,3 +1,12 @@
+##### [Version 1.2.18](https://github.com/Codeinwp/templates-patterns-collection/compare/v1.2.17...v1.2.18) (2025-01-30)
+
+- New Onboarding experience
+- Remove legacy notice for the Neve theme
+
+##### [Version 1.2.17](https://github.com/Codeinwp/templates-patterns-collection/compare/v1.2.16...v1.2.17) (2024-12-16)
+
+- fix translation loading for javascript files
+
 ##### [Version 1.2.16](https://github.com/Codeinwp/templates-patterns-collection/compare/v1.2.15...v1.2.16) (2024-12-04)
 
 - Codebase changes.
