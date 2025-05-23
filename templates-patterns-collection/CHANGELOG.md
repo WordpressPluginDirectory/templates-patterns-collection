@@ -1,3 +1,18 @@
+##### [Version 1.2.21](https://github.com/Codeinwp/templates-patterns-collection/compare/v1.2.20...v1.2.21) (2025-05-22)
+
+- Updated dependencies
+- Ensure sites that can't be imported in current context are marked properly
+- Fixed php deprecation warning with PHP 8.2 and above
+
+##### [Version 1.2.20](https://github.com/Codeinwp/templates-patterns-collection/compare/v1.2.19...v1.2.20) (2025-04-16)
+
+- Updated dependencies
+
+##### [Version 1.2.19](https://github.com/Codeinwp/templates-patterns-collection/compare/v1.2.18...v1.2.19) (2025-02-05)
+
+- Fix language pack loading
+- Fix onboarding layout overflow and responsiveness
+
 ##### [Version 1.2.18](https://github.com/Codeinwp/templates-patterns-collection/compare/v1.2.17...v1.2.18) (2025-01-30)
 
 - New Onboarding experience
